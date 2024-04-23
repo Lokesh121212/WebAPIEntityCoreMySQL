@@ -99,9 +99,14 @@ namespace AspNetCoreWebApi6.Controllers
                 return NotFound();
             }
 
+           try{
             _dbContext.Movies.Remove(movie);
             await _dbContext.SaveChangesAsync();
-
+            }
+        catch(Exception e)
+        {
+        Console.WriteLine(e):
+        }
             return NoContent();
         }
 
